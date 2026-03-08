@@ -17,7 +17,7 @@ jobs:
         distribution: 'temurin'
         
     - name: Run Tests with test profile
-      run: ./mvnw test
+      run: mvn test
       env:
         SPRING_PROFILES_ACTIVE: test
 
