@@ -1,15 +1,11 @@
 package com.example.demo;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootTest
-@ActiveProfiles("test")
-class DemoApplicationTests {
-
-    @Test
-    void contextLoads() {
-        // Tämä testi menee läpi, jos Spring Boot saa sovelluksen ja tietokantayhteyden käyntiin onnistuneesti
+@SpringBootApplication
+public class DemoApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
     }
 }
