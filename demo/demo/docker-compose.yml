@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  app:
+    image: ${DOCKER_USERNAME}/spring-item-api:latest
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-dev}
+      - DB_HOST=db
+      - DB_NAME=itemdb
+      - DB_USER=root
+      - DB_PASS=secretpassword
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:10.11
+    ports:
+      - "3306:3306"
+    environment:
+      - MARIADB_ROOT_PASSWORD=secretpassword
+      - MARIADB_DATABASE=itemdb
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

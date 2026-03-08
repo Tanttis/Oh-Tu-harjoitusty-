@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://${DB_HOST:db}:3306/${DB_NAME:itemdb}
+    username: ${DB_USER:root}
+    password: ${DB_PASS:prodpassword}
+  jpa:
+    hibernate:
+      ddl-auto: update
+server:
+  port: 8080
